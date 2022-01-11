@@ -11,10 +11,13 @@ function productHandler(isIncrease, pricing, id) {
     document.getElementById(id + 'Amount').innerText = price;
 
     const phoneAmount = document.getElementById('mobileAmount').innerText;
-    let phoneAmountNumber = parseInt(phoneAmount)
+    const phoneAmountNumber = parseInt(phoneAmount)
     const caseAmount = document.getElementById('caseAmount').innerText;
-    let caseAmountNumber = parseInt(caseAmount)
-    let totalAmount = phoneAmountNumber + caseAmountNumber;
+    const caseAmountNumber = parseInt(caseAmount)
+    const totalAmount = phoneAmountNumber + caseAmountNumber;
     document.getElementById('subTotal').innerText = totalAmount;
-    document.getElementById('totalAmount').innerText = totalAmount;
+    const taxValue = Math.round(totalAmount * 0.1);
+    document.getElementById('tax').innerText = taxValue;
+    const taxAddedTotal = totalAmount + taxValue;
+    document.getElementById('totalAmount').innerText = taxAddedTotal;
 }
